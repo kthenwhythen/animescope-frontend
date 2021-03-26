@@ -1,17 +1,37 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { StrictMode } from 'react'
+import { render } from 'react-dom'
+import { createGlobalStyle } from 'styled-components'
+import axios from 'axios'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import App from './containers/App/App'
+import reportWebVitals from './reportWebVitals'
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const GlobalStyle = createGlobalStyle`
+	body {
+		margin: 0;
+		font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		background-color: #252525;
+		color: #EEEEEE;
+	}
+  
+	code {
+		font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+	}
+`
+
+axios.defaults.baseURL = 'http://127.0.0.1:5000'
+
+render(
+	<StrictMode>
+		<App />
+		<GlobalStyle />
+	</StrictMode>,
+	document.getElementById('root')
+)
+
+reportWebVitals()
