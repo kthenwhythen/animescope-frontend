@@ -1,0 +1,67 @@
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+.Hamburger {
+  float: right;
+  padding: 0 6px;
+  cursor: pointer;
+  transition-property: opacity, filter;
+  transition-duration: 0.15s;
+  transition-timing-function: linear;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible; 
+  user-select: none;
+  cursor: default;}
+  .Hamburger:hover {
+    opacity: 1; }
+  .Hamburger.isActive:hover {
+    opacity: 1; }
+  .Hamburger.isActive .HamburgerInner,
+  .Hamburger.isActive .HamburgerInner::before,
+  .Hamburger.isActive .HamburgerInner::after {
+    background-color: #F3AF68; }
+
+.HamburgerBox {
+  width: 24px;
+  height: 32px;
+  display: inline-block;
+  position: relative; }
+
+.HamburgerInner {
+  display: block;
+  top: 50%;
+  margin-top: 0px; }
+  .HamburgerInner, .HamburgerInner::before, .HamburgerInner::after {
+    width: 24px;
+    height: 3px;
+    background-color: #F3AF68;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease; }
+  .HamburgerInner::before, .HamburgerInner::after {
+    content: "";
+    display: block; }
+  .HamburgerInner::before {
+    top: -7px; }
+  .HamburgerInner::after {
+    bottom: -7px; }
+
+/*
+   * Arrow Right
+   */
+.HamburgerArrowR.isActive .HamburgerInner::before {
+  transform: translate3d(6px, 2px, 0) rotate(45deg) scale(0.6, 1); }
+
+.HamburgerArrowR.isActive .HamburgerInner::after {
+  transform: translate3d(6px, -2px, 0) rotate(-45deg) scale(0.6, 1); }

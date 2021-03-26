@@ -18,6 +18,7 @@ const Predictions = () => {
 
     const predictions = predictionsData.map(prediction => (
         <Prediction
+            key={prediction.id}
             img={prediction.img}
             text={prediction.text}
             source={prediction.source} />
