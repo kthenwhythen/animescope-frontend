@@ -8,11 +8,10 @@ const HeaderWrap = styled.header`
 	padding: 12px 4px;
 	margin: 0;
 	position: fixed;
-	/* background: linear-gradient(rgba(37, 37, 37, 1) 70%, rgba(37, 37, 37, 0)); */
 	background-color: rgba(37, 37, 37, 0.75);
 	backdrop-filter: blur(4px);
 	width: 100%;
-	/* height: 72px; */
+	z-index: 150;
 `
 const Logo = styled.img`
 	width: 36px;
@@ -31,13 +30,12 @@ const LogoTitle = styled.p`
 	margin-left: 6px;
 `
 
-const Header = () => {
-	const [toggleSideDrawer, setToggleSideDrawer] = useState(false)
+interface Props {
+	active?: boolean
+	clicked?: () => void
+}
 
-	const sideDrawerToggleHandler = () => {
-		setToggleSideDrawer(!toggleSideDrawer)
-	}
-
+const Header: React.FC<Props> = ({active, clicked}) => {
 	return (
 		<HeaderWrap className="row">
 			<div className="col-xs-8">
@@ -45,7 +43,7 @@ const Header = () => {
 				<LogoTitle>Animescope</LogoTitle>
 			</div>
 			<div className="col-xs-4">
-				<div className={`${hamburger.Hamburger} ${hamburger.HamburgerArrowR} ${toggleSideDrawer ? hamburger.isActive : ''}`} onClick={sideDrawerToggleHandler}>
+				<div className={`${hamburger.Hamburger} ${hamburger.HamburgerArrowR} ${active ? hamburger.isActive : ''}`} onClick={clicked}>
 					<span className={hamburger.HamburgerBox}>
 						<span className={hamburger.HamburgerInner}></span>
 					</span>

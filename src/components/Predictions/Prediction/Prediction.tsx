@@ -1,17 +1,7 @@
 import styled from 'styled-components'
 
-const Card = styled.div`
-    margin-bottom: 24px;
-`
-const TopInfo = styled.div`
-    height: 16px;
-    margin-bottom: 6px;
-`
-const Body = styled.div`
-    border-radius: 16px;
-    overflow: hidden;
-    background-color: #2D2D2D;
-`
+import Card from '../../UI/Card/Card'
+
 const Image = styled.img`
     width: 100%;
     height: 200px;
@@ -24,22 +14,6 @@ const BodyText = styled.p`
     line-height: 20px;
     text-align: left;
 `
-const TopText1 = styled.p`
-    margin: 0;
-    padding: 0 20px;
-    font-size: 14px;
-    line-height: 14px;
-    text-align: left;
-    color: #F3AF68;
-`
-const TopText2 = styled.p`
-    margin: 0;
-    padding: 0 20px;
-    font-size: 14px;
-    line-height: 14px;
-    text-align: right;
-    color: #7F8DCC;
-`
 
 export interface Props {
   img: string
@@ -48,17 +22,11 @@ export interface Props {
 }
 
 const Prediction = ({ img, text, source }: Props) => (
-    <Card>
-        <TopInfo className="row">
-            <TopText1 className="col-xs-6">14 марта 2021</TopText1>
-            <TopText2 className="col-xs-6">Новое</TopText2>
-        </TopInfo>
-        <Body>
-            <Image src={img} />
-            <BodyText>
-                {text}
-            </BodyText>
-        </Body>
+    <Card topText1={"14 марта / 2021"} topText2={"Новое"}>
+        <Image src={img} />
+        <BodyText>
+            {text}
+        </BodyText>
     </Card>
 )
 

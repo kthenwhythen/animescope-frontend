@@ -3,7 +3,7 @@ import { Fragment } from 'react'
 import Layout from '../Layout/Layout'
 import Predictions from '../../components/Predictions/Predictions'
 
-function App() {
+const App = () => {
 	return (
 		<Fragment>
 			<Layout>
