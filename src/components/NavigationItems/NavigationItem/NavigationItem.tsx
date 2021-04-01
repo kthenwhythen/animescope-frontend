@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-import {ReactComponent as HomeIcon} from '../../../assets/images/home.svg'
-import {ReactComponent as CreateIcon} from '../../../assets/images/create.svg'
-import {ReactComponent as GithubIcon} from '../../../assets/images/github.svg'
+import { ReactComponent as HomeIcon } from '../../../assets/images/home.svg'
+import { ReactComponent as CreateIcon } from '../../../assets/images/create.svg'
+import { ReactComponent as GithubIcon } from '../../../assets/images/github.svg'
 
-const Item = styled.a`
+const Item = styled.div`
     display: block;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding: 24px;
@@ -34,9 +35,11 @@ const Text = styled.p`
 interface Props {
     link?: string
     icon: string
+    clicked: () => void
+    children: any
 }
 
-const NavigationItem: React.FC<Props> = ({link, icon, children}) => {
+const NavigationItem: React.FC<Props> = ({ link, icon, children, clicked } : Props) => {
     let Icon: any
     if (icon === 'home') {
         Icon = HomeIcon
@@ -50,14 +53,14 @@ const NavigationItem: React.FC<Props> = ({link, icon, children}) => {
 
 
     return (
-        <Item href={link ? link : '#'}>
-            {/* <Icon src={img} /> */}
-            <WrapIcon>
-                <Icon fill="#7F8DCC" />
-            </WrapIcon>
-            
-            <Text>{children}</Text>
-        </Item>
+        <Link to={{pathname: link}} onClick={clicked} target={icon === 'github' ? "_blank" : null}>
+            <Item>
+                <WrapIcon>
+                    <Icon fill="#7F8DCC" />
+                </WrapIcon>
+                <Text>{children}</Text>
+            </Item>
+        </Link>
     )
 }
 

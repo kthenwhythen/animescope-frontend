@@ -1,9 +1,22 @@
 import styled from 'styled-components'
+import { CSSTransition } from 'react-transition-group'
 
 const CardWrap = styled.div`
     margin-bottom: 24px;
     z-index: 100;
 `
+
+const Wrap = styled.div`
+    &.fade-appear {
+        opacity: 0;
+    }
+
+    &.fade-appear-done {
+        opacity: 1;
+        transition: opacity 200ms;
+    }
+`
+
 const TopInfo = styled.div`
     height: 16px;
     margin-bottom: 6px;
@@ -39,13 +52,22 @@ interface Props {
 const Card: React.FC<Props> = ({children, topText1, topText2}) => {
     return (
         <CardWrap>
-            <TopInfo className="row">
-                <TopText1 className="col-xs-6">{topText1}</TopText1>
-                <TopText2 className="col-xs-6">{topText2}</TopText2>
-            </TopInfo>
-            <Body>
-                {children}
-            </Body>
+            <CSSTransition
+                in
+                appear
+                classNames="fade"
+                timeout={100}
+            >
+                <Wrap>
+                    <TopInfo className="row">
+                        <TopText1 className="col-xs-6">{topText1}</TopText1>
+                        <TopText2 className="col-xs-6">{topText2}</TopText2>
+                    </TopInfo>
+                    <Body>
+                        {children}
+                    </Body>
+                </Wrap>
+            </CSSTransition>
         </CardWrap>
     )
 }

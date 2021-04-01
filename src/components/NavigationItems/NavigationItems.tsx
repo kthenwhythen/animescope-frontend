@@ -4,15 +4,15 @@ import styled from 'styled-components'
 import NavigationItem from './NavigationItem/NavigationItem'
 
 interface Props {
-
+    clicked: () => void
 }
 
-const NavigationItems: React.FC<Props> = () => {
+const NavigationItems: React.FC<Props> = ({clicked} : Props) => {
     return (
         <Fragment>
-            <NavigationItem icon={'home'}>Главная</NavigationItem>
-            <NavigationItem icon={'create'}>Создать пост</NavigationItem>
-            <NavigationItem link={'https://github.com/null-architect'} icon={'github'}>Github repo</NavigationItem>
+            <NavigationItem link={'/'} icon={'home'} clicked={clicked}>Главная</NavigationItem>
+            <NavigationItem link={'/new-post'} icon={'create'} clicked={clicked}>Создать пост</NavigationItem>
+            <NavigationItem link={'https://github.com/null-architect'} icon={'github'} clicked={clicked}>Github repo</NavigationItem>
         </Fragment>
     )
 }

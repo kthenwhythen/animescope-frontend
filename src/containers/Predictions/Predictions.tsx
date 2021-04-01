@@ -1,7 +1,11 @@
 import {useEffect, useState} from 'react'
 import axios from 'axios'
+import LazyLoad from 'react-lazyload'
+
 
 import Prediction from './Prediction/Prediction'
+import Placeholder from '../../components/UI/Placeholder/Placeholder'
+
 
 const Predictions = () => {
     const [isPredictionsLoaded, setIsPredictionsLoaded] = useState(false)
@@ -17,11 +21,13 @@ const Predictions = () => {
     })
 
     const predictions = predictionsData.map(prediction => (
-        <Prediction
-            key={prediction.id}
-            img={prediction.img}
-            text={prediction.text}
-            source={prediction.source} />
+        <LazyLoad key={prediction.id} height={300} offset={0} debounce={500} placeholder={<Placeholder />}>
+            <Prediction
+                key={prediction.id}
+                img={prediction.img}
+                text={prediction.text}
+                source={prediction.source} />
+        </LazyLoad>
     ))
 
     return (

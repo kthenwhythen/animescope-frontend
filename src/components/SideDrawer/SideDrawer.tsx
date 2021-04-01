@@ -10,7 +10,7 @@ const MenuPosition = styled.div`
 	right: 12px;
 	margin-top: 72px;
 	position: fixed;
-	z-index: 50;
+	z-index: -1;
 	opacity: 0;
 	transition: all 0.4s ease-in-out;
 `
@@ -21,14 +21,14 @@ interface Props {
 }
 
 const SideDrawer : React.FC<Props> = ({show, clicked} : Props) => {
-	let style = {transform: `translate(${show ? '0' : '-50px'})`, opacity: `${show ? '1' : '0'}`}
+	let style = {transform: `translate(${show ? '0' : '-50px'})`, opacity: `${show ? '1' : '0'}`, zIndex: `${show ? '150' : '-1'}`} as React.CSSProperties;
 	return (
 		<Fragment>
 			<Backdrop show={show} clicked={clicked} move={-292} />
 			<MenuPosition style={style}>
 				<Card topText1={'Меню'} topText2={'Обычное'}>
 					<nav>
-						<NavigationItems />
+						<NavigationItems clicked={clicked} />
 					</nav>
 				</Card>
 			</MenuPosition>
