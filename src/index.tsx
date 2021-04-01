@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 `
 
-axios.defaults.baseURL = 'http://api-animescope.herokuapp.com/'
+axios.defaults.baseURL = 'https://api-animescope.herokuapp.com/'
 
 render(
 	<StrictMode>
