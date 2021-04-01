@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
 	}
 `
 
-axios.defaults.baseURL = 'http://127.0.0.1:5000'
+axios.defaults.baseURL = 'http://api-animescope.herokuapp.com/'
 
 render(
 	<StrictMode>
