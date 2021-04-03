@@ -20,7 +20,7 @@ const Predictions = () => {
         }
     })
 
-    const predictions = predictionsData.map(prediction => (
+    const predictions = predictionsData.slice(0).reverse().map(prediction => (
         <LazyLoad key={prediction.id} height={300} offset={0} debounce={500} placeholder={<Placeholder />}>
             <Prediction
                 key={prediction.id}

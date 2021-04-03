@@ -1,8 +1,6 @@
 import styled from 'styled-components'
-import { CSSTransition } from 'react-transition-group'
 
-import Card from '../../../components/UI/Card/Card'
-import { useState } from 'react'
+import PostCard from '../../../components/UI/PostCard/PostCard'
 
 const Image = styled.img`
     width: 100%;
@@ -25,15 +23,13 @@ export interface Props {
 
 
 const Prediction = ({ img, text, source }: Props) => {
-    const [showImg, setShowImg] = useState(false)
-
     return (
-        <Card topText1={"14 марта / 2021"} topText2={"Новое"}>
+        <PostCard topText1={"14 марта / 2021"} topText2={"Новое"}>
             <Image src={img} />
             <BodyText>
                 {text}
             </BodyText>
-        </Card>
+        </PostCard>
     )
 }
 

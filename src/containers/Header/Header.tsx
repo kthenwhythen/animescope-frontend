@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import hamburger from '../../assets/css/hamburgers.module.css'
+import { Link } from 'react-router-dom'
 
 import logo from '../../assets/images/logo.png'
 
@@ -28,6 +28,10 @@ const LogoTitle = styled.p`
 	vertical-align: middle;
 	color: #F3AF68;
 	margin-left: 6px;
+	-webkit-user-select: none;  
+	-moz-user-select: none;    
+	-ms-user-select: none;      
+	user-select: none;
 `
 
 interface Props {
@@ -38,10 +42,10 @@ interface Props {
 const Header: React.FC<Props> = ({active, clicked}) => {
 	return (
 		<HeaderWrap className="row">
-			<div className="col-xs-8">
+			<Link className="col-xs-8" to="/">
 				<Logo src={logo} />
 				<LogoTitle>Animescope</LogoTitle>
-			</div>
+			</Link>
 			<div className="col-xs-4">
 				<div className={`${hamburger.Hamburger} ${hamburger.HamburgerArrowR} ${active ? hamburger.isActive : ''}`} onClick={clicked}>
 					<span className={hamburger.HamburgerBox}>

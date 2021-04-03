@@ -9,10 +9,6 @@ const Item = styled.div`
     display: block;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding: 24px;
-
-    &:last-child {
-        border-bottom: none;
-    }
 `
 
 const WrapIcon = styled.div`

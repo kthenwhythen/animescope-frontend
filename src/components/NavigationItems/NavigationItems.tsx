@@ -1,7 +1,12 @@
-import {Fragment} from 'react'
 import styled from 'styled-components'
 
 import NavigationItem from './NavigationItem/NavigationItem'
+
+const Wrap = styled.div`
+    & a:last-child > div {
+        border-bottom: none;
+    }
+`
 
 interface Props {
     clicked: () => void
@@ -9,13 +14,12 @@ interface Props {
 
 const NavigationItems: React.FC<Props> = ({clicked} : Props) => {
     return (
-        <Fragment>
+        <Wrap>
             <NavigationItem link={'/'} icon={'home'} clicked={clicked}>Главная</NavigationItem>
             <NavigationItem link={'/new-post'} icon={'create'} clicked={clicked}>Создать пост</NavigationItem>
             <NavigationItem link={'https://github.com/null-architect'} icon={'github'} clicked={clicked}>Github repo</NavigationItem>
-        </Fragment>
+        </Wrap>
     )
 }
 
 export default NavigationItems
-
