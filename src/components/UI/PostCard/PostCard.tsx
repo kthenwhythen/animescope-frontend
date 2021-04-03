@@ -27,29 +27,47 @@ const Body = styled.div`
     background-color: #2D2D2D;
 `
 
-const TopText1 = styled.p`
+const TopText1 = styled.a`
     margin: 0;
     padding: 0 20px;
     font-size: 14px;
     line-height: 14px;
     text-align: left;
-    color: #F3AF68;
+    color: #7F8DCC;
+    text-decoration: none;
+
+    &:focus {
+        color: #A0A8CD;
+    }
+    &:hover {
+        color: #A0A8CD;
+    }
 `
-const TopText2 = styled.p`
+const TopText2 = styled.a`
     margin: 0;
     padding: 0 20px;
     font-size: 14px;
     line-height: 14px;
     text-align: right;
     color: #8A8A8A;
+
+    &:focus {
+        color: #EC7171;
+    }
+    &:hover {
+        color: #EC7171;
+    }
 `
 
 interface Props {
+    id: string
+    click: (id) => void
+    link: string
 	topText1: string
     topText2: string
 }
 
-const Card: React.FC<Props> = ({children, topText1, topText2}) => {
+const Card: React.FC<Props> = ({children, click, id, link, topText1, topText2}) => {
     return (
         <CardWrap>
             <CSSTransition
@@ -60,8 +78,8 @@ const Card: React.FC<Props> = ({children, topText1, topText2}) => {
             >
                 <Wrap>
                     <TopInfo className="row">
-                        <TopText1 className="col-xs-6">{topText1}</TopText1>
-                        <TopText2 className="col-xs-6">{topText2}</TopText2>
+                        <TopText1 href={link} className="col-xs-6">Источник</TopText1>
+                        <TopText2 onClick={() => click(id)} className="col-xs-6">Удалить</TopText2>
                     </TopInfo>
                     <Body>
                         {children}

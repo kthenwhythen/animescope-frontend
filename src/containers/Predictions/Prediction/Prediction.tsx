@@ -16,15 +16,17 @@ const BodyText = styled.p`
 `
 
 export interface Props {
-  img: string
-  text: string
-  source: string
+    id: string
+    click: (id) => void
+    img: string
+    text: string
+    source: string
 }
 
 
-const Prediction = ({ img, text, source }: Props) => {
+const Prediction = ({ id, click, img, text, source }: Props) => {
     return (
-        <PostCard topText1={"14 марта / 2021"} topText2={"Новое"}>
+        <PostCard click={click} id={id} link={source} topText1={"14 марта / 2021"} topText2={"Новое"}>
             <Image src={img} />
             <BodyText>
                 {text}
