@@ -16,17 +16,17 @@ const Loading = styled.img`
 
 const Predictions = () => {
     const [isPredictionsLoaded, setIsPredictionsLoaded] = useState(false)
+    const [isPredictionsLoading, setIsPredictionsLoading] = useState(false)
     const [predictionsData, setPredictionsData] = useState<any[]>([])
     useEffect(() => {
-        if (!isPredictionsLoaded) {
+        if (!isPredictionsLoaded && !isPredictionsLoading) {
+            setIsPredictionsLoading(true)
             axios.get('/predictions')
                 .then(response => {
                     setPredictionsData(response.data)
                     setIsPredictionsLoaded(true)
+                    setIsPredictionsLoading(false)
                 })
-        }
-        else {
-
         }
     })
 

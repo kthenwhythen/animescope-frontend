@@ -50,6 +50,7 @@ const TopText2 = styled.a`
     line-height: 14px;
     text-align: right;
     color: #8A8A8A;
+    cursor: pointer;
 
     &:focus {
         color: #EC7171;
