@@ -49,14 +49,14 @@ const TopText2 = styled.a`
     font-size: 14px;
     line-height: 14px;
     text-align: right;
-    color: #8A8A8A;
+    color: #EC7171;
     cursor: pointer;
 
     &:focus {
-        color: #EC7171;
+        color: #F59898;
     }
     &:hover {
-        color: #EC7171;
+        color: #F59898;
     }
 `
 
